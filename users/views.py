@@ -1102,6 +1102,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import HttpResponse
+from django.utils.html import escape
 import traceback
 
 @csrf_exempt
@@ -1220,7 +1221,7 @@ def test_send_email(request):
     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None) or settings.EMAIL_HOST_USER
     try:
         send_mail(subject, message, from_email, [email], fail_silently=False)
-        return HttpResponse(f"Sent test email to {email}")
+        return HttpResponse(f"Sent test email to {escape(email)}")
     except Exception as e:
         tb = traceback.format_exc()
         return HttpResponse(f"Failed to send email to {email}: {e}\n\n{tb}", status=500, content_type='text/plain')
