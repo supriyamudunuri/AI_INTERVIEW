@@ -1103,6 +1103,9 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import HttpResponse
 import traceback
+import logging
+
+logger = logging.getLogger(__name__)
 
 @csrf_exempt
 def capture_emotion(request):
@@ -1221,7 +1224,7 @@ def test_send_email(request):
     try:
         send_mail(subject, message, from_email, [email], fail_silently=False)
         return HttpResponse(f"Sent test email to {email}")
-    except Exception as e:
-        tb = traceback.format_exc()
-        return HttpResponse(f"Failed to send email to {email}: {e}\n\n{tb}", status=500, content_type='text/plain')
+    except Exception:
+        logger.exception("Failed to send test email to %s", email)
+        return HttpResponse("Failed to send test email.", status=500, content_type='text/plain')
 
