@@ -139,8 +139,8 @@ EMAIL_BACKEND = 'users.email_backend.UnsafeSSLEmailBackend' if DEBUG else 'djang
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ekalilinux2025@gmail.com'  # Replace with your Gmail
-EMAIL_HOST_PASSWORD = 'wasp tmjl rclu ijxv'  # Replace with your App Password
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")  # Replace with your Gmail
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Replace with your App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # SSL/TLS configuration for development (disable cert verification to avoid Windows certificate issues)
