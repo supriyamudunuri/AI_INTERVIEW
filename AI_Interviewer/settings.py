@@ -129,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-GOOGLE_API_KEY = 'AQ.Ab8RN6IXigVk8RdbwVCvsCGf-Il1id3gf6NxChylBunZZcLV5g'
+GOOGLE_API_KEY = ""
 
 
 
