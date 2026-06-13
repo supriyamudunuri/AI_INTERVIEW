@@ -1,0 +1,58 @@
+{% extends "users/user_base.html" %}
+
+{% block content %}
+<!-- Welcome Section -->
+<section class="pt-8 pb-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- User Info with bigger size -->
+        <div class="flex items-center justify-center space-x-3 mb-6">
+            <img src="{{ user_image }}" alt="User Image" class="w-20 h-20 rounded-full border-2 border-blue-600">
+            <span class="text-white text-lg font-semibold">Welcome, {{ user_name }}!</span>
+            <span class="text-blue-200 text-lg">| {{ login_time }}</span>
+        </div>
+
+<h2 class="text-4xl md:text-5xl font-bold text-pink-600 mb-6 animate-slide-in">
+  Your InterviewAI Dashboard 🚀
+</h2>
+        <p class="text-lg mb-8 max-w-2xl mx-auto">Take control of your hiring process with our AI-powered tools. Start interviews, review analytics, and find the perfect candidates effortlessly.</p>
+        <div class="flex space-x-4 justify-center">
+            <a href="{% url 'start_interview' %}" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-md hover:bg-gray-100 animate-float transition">Start Interview Now 🎤</a>
+            <a href="{% url 'demo_interview' %}" class="inline-block bg-blue-200 text-blue-800 px-8 py-3 rounded-md hover:bg-blue-300 animate-float transition">See Demo Interview 🎭</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Features Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center gradient-text mb-12 animate-slide-in">Why InterviewAI? 🌟</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow animate-slide-in">
+                <img src="https://media.giphy.com/media/l0Iyl55kTeh71nTWw/giphy.gif" alt="AI Interview GIF" class="w-16 h-16 mx-auto mb-4">
+                <h3 class="text-xl font-semibold mb-2">AI-Powered Interviews 🤖</h3>
+                <p class="text-gray-600">Conduct seamless interviews with tailored questions powered by Gemini API.</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow animate-slide-in">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Candidate Matching" class="w-16 h-16 mx-auto mb-4">
+                <h3 class="text-xl font-semibold mb-2">Smart Matching 🎯</h3>
+                <p class="text-gray-600">Find the best candidates with AI-driven recommendations.</p>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow animate-slide-in">
+                <img src="https://media.giphy.com/media/l0Iyl55kTeh71nTWw/giphy.gif" alt="AI Interview GIF" class="w-16 h-16 mx-auto mb-4">
+                <h3 class="text-xl font-semibold mb-2">Bias Reduction ⚖️</h3>
+                <p class="text-gray-600">Ensure fair hiring with our bias-reducing algorithms.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call-to-Action Section -->
+<section class="py-16 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-slide-in">
+        <h2 class="text-3xl font-bold gradient-text mb-4">Ready to Hire Smarter? 🚀</h2>
+        <p class="text-lg mb-6">Take your hiring to the next level with InterviewAI's powerful tools.</p>
+        <a href="{% url 'start_interview' %}" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-md hover:bg-gray-100 transition">Start Interview 🎤</a>
+    </div>
+</section>
+{% endblock %}
