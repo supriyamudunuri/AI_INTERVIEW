@@ -1217,13 +1217,14 @@ def capture_emotion(request):
 
 def test_send_email(request):
     """Dev helper: send a simple test email and show any SMTP error in response."""
+    from django.utils.html import escape
     email = request.GET.get('email') or getattr(settings, 'EMAIL_HOST_USER')
     subject = "AI_Interviewer - Test Email"
     message = "This is a test message to verify SMTP configuration."
     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None) or settings.EMAIL_HOST_USER
     try:
         send_mail(subject, message, from_email, [email], fail_silently=False)
-        return HttpResponse(f"Sent test email to {email}")
+        return HttpResponse(f"Sent test email to {escape(email)}")
     except Exception:
         logger.exception("Failed to send test email to %s", email)
         return HttpResponse("Failed to send test email.", status=500, content_type='text/plain')
