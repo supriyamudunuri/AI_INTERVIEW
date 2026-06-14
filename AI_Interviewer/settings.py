@@ -20,11 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-import os
-SECRET_KEY = os.getenv("SECRET_KEY")
+
+SECRET_KEY = ${{secrets.SECRET_KEY}}
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = ${{secrets.DEBUG}}
 
 ALLOWED_HOSTS = []
 
@@ -130,7 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = ${{secrets.GOOGLE_API_KEY}}
 
 
 
@@ -140,8 +140,8 @@ EMAIL_BACKEND = 'users.email_backend.UnsafeSSLEmailBackend' if DEBUG else 'djang
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")  # Replace with your Gmail
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")  # Replace with your App Password
+EMAIL_HOST_USER = ${{secrets.EMAIL_HOST_USER}} # Replace with your Gmail
+EMAIL_HOST_PASSWORD = ${{secrets.EMAIL_HOST_PASSWORD}}  # Replace with your App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # SSL/TLS configuration for development (disable cert verification to avoid Windows certificate issues)
